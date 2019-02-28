@@ -10,8 +10,12 @@
 </head>
 
 <body>
-	{% include header.html %}
-	{{ content }}
+	<div id="whole-wrapper">
+		{% include header.html %}
+		<div class="content-wrapper">
+			{{ content }}
+		</div>
+	</div>
 </body>
 
 </html>

@@ -3,120 +3,281 @@
    License: none (public domain)
 */
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
 }
 body {
-	line-height: 1;
+  line-height: 1;
 }
-ol, ul {
-	list-style: none;
+ol,
+ul {
+  list-style: none;
 }
-blockquote, q {
-	quotes: none;
+blockquote,
+q {
+  quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
 }
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 /* GENERAL CSS */
-$open-font: 'Open Sans', sans-serif;
-$roboto-font: 'Roboto', sans-serif;
+$open-font: "Open Sans", sans-serif;
+$roboto-font: "Roboto", sans-serif;
+$mywhite: #fefefe;
 $myblack: #101010;
 $mygrey: #696969;
-$mylightgrey: #BEBEBE;
+$mylightgrey: #bebebe;
+$mytest: #fffce0; //#FCF8ED;
 @mixin box_sizing {
-  -moz-box-sizing:    border-box;
+  -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
-  box-sizing:         border-box;
+  box-sizing: border-box;
 }
 
 html {
-	height: 100%;
-	background-color: $mylightgrey;
+  height: 100%;
+  background-color: $mytest;
 }
 body {
-	@include box_sizing;
-	font-family: $roboto-font;
-	width: 780px;
-	height: 100%;
-	background-color: white;
-	margin: auto;
-	padding: 0px 20px;
+  @include box_sizing;
+  font-family: $roboto-font;
+  height: 100%;
+  padding: 30px;
 }
-h1 {
-	font-family: $open-font;
-	font-size: 2em;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.2;
+  font-family: $roboto-font;
 }
 
+h1 {
+  font-size: 3em;
+  margin-bottom: 15px;
+  font-weight: 100;
+}
+
+#whole-wrapper {
+display: flex;
+flex-direction: column;
+  box-sizing: inherit;
+  width: 100%;
+  height: 100%;
+  background-color: $mywhite;
+}
+.content-wrapper {
+	display: inherit;
+	flex-direction: inherit;
+	flex: 1 1 auto;
+  box-sizing: inherit;
+  max-width: 780px;
+  color: $mygrey;
+}
 /* HEADER CSS */
 $header-size: 50px;
+
 header {
-	//@include box_sizing;
-	font-family: $open-font;
-	width: 100%px;
-	height: $header-size;
-	//background-color: red;
-	border-bottom: 1px solid black;
-	margin-bottom: 10px;
-	overflow: hidden;
+  overflow: hidden;
+  font-family: $open-font;
+  width: 100%px;
+  background-color: $mytest;
+  padding: 0px 20px 0px 5px;
+  margin-bottom: 20px;
 }
 #name-wrapper {
-	display: flex;
-	float: left;
-	height: 100%;
+  float: left;
+  height: 100%;
+  padding: 5px;
 }
 
 #myname {
-	margin: auto auto;
-	font-family: $roboto-font;
-	font-weight: 100;
-	font-size: $header-size * 0.7
+  margin: auto auto;
+  font-family: $roboto-font;
+  font-weight: 100;
+  font-size: $header-size * 0.7;
 }
-.header-nav {
-	display: flex;
-	float: right;
-	height: 100%;
-	a {
-		text-align: center;
-		margin: auto;
-		padding: 0px 12px;
-		font-size: $header-size * 0.4;
-		color: $mygrey;
-		text-decoration: none;
-	}
-	a:hover {
-		color: $myblack;
-	}
-	a:last-of-type {
-		padding-right: 0px;
-	}
+#header-nav {
+  float: right;
+  li {
+    display: inline-block;
+    list-style-type: none;
+    padding: 5px 7px;
+  }
+  a {
+    text-align: center;
+    margin: auto;
+    font-size: $header-size * 0.4;
+    color: $mygrey;
+    text-decoration: none;
+  }
+  a:hover {
+    color: $myblack;
+  }
+  a:last-of-type {
+    padding-right: 0px;
+  }
+}
+/* HOME PAGE */
+#home-page {
+  padding: 20px;
+}
+/* ABOUT PAGE */
+
+#about-page {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  box-sizing: inherit;
+
+  section::before,
+  section::after {
+    position: absolute;
+    content: "";
+    pointer-events: none;
+  }
+
+  $color1: $mywhite;
+  /* Triangles */
+  .container {
+    overflow: hidden;
+    width: 100%;
+    margin: 0px;
+    /* we don't want the pseudo-elements sticking out */
+  }
+  .ss-style-triangles::after {
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    -webkit-transform: translateX(-50%) rotate(45deg);
+    transform: translateX(-50%) rotate(45deg);
+  }
+
+  .ss-style-triangles::after {
+    bottom: -50px;
+    z-index: 10;
+    background: inherit;
+  }
+
+  #about-title {
+    position: relative;
+    padding: 5em 0em;
+    background: $color1;
+    text-align: center;
+  }
+  #about-content {
+	flex: 1 1 auto;
+	padding: 80px 20px 20px;
+    background: darken($color: $color1, $amount: 3);
+  }
 }
