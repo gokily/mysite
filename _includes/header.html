@@ -1,0 +1,10 @@
+<header class="site-header">
+	<div id="name-wrapper">
+		<span id="myname">{{ site.myname | Capitalize }}</span>
+	</div>
+	<nav class="header-nav">
+		{% for item in site.data.navigation %}
+		<a href="{{ site.baseurl }}{{ item.link }}">{{ item.name }}</a>
+		{% endfor %}
+	</nav>
+</header>
