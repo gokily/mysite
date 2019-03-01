@@ -143,21 +143,16 @@ $mytest: #fffce0; //#FCF8ED;
 }
 
 html {
-  height: 100%;
   background-color: $mytest;
 }
+
 body {
   @include box_sizing;
   font-family: $roboto-font;
   height: 100%;
   padding: 30px;
 }
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
   line-height: 1.2;
   font-family: $roboto-font;
 }
@@ -169,17 +164,17 @@ h1 {
 }
 
 #whole-wrapper {
-display: flex;
-flex-direction: column;
+  display: flex;
+  flex-direction: column;
   box-sizing: inherit;
   width: 100%;
   height: 100%;
   background-color: $mywhite;
 }
 .content-wrapper {
-	display: inherit;
-	flex-direction: inherit;
-	flex: 1 1 auto;
+  display: inherit;
+  flex-direction: inherit;
+  flex: 1 1 auto;
   box-sizing: inherit;
   max-width: 780px;
   color: $mygrey;
@@ -189,6 +184,7 @@ $header-size: 50px;
 
 header {
   overflow: hidden;
+  flex: 0 0 auto;
   font-family: $open-font;
   width: 100%px;
   background-color: $mytest;
@@ -276,8 +272,8 @@ header {
     text-align: center;
   }
   #about-content {
-	flex: 1 1 auto;
-	padding: 80px 20px 20px;
+    flex: 1 1 auto;
+    padding: 80px 20px 20px;
     background: darken($color: $color1, $amount: 3);
   }
 }
