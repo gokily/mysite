@@ -2,3 +2,22 @@
 title: Blog
 permalink: /blog/
 ---
+<div id="blog-page">
+	<aside id="blog-aside">
+		<h3>There are {{ site.posts | size }} posts on this blog</h3>
+	</aside>
+	<ul>
+
+		{% for post in site.posts %}
+		<li>
+			<a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+			{{ post.excerpt }}
+		</li>
+	</ul>
+	{% endfor %}
+	{% assign test = site.posts | where: "year", 2012 | first %}
+	<p>
+		Article from 2012: {{ test.url }}
+	</p>
+
+</div>

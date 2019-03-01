@@ -21,6 +21,9 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: jekyllrb
 github_username:  jekyll
+github_url: https://github.com/gokily
+
+excerpt_separator: <!--more-->
 
 # Defaults
 
@@ -30,6 +33,7 @@ defaults:
       type: "posts"
     values:
       layout: "post"
+      permalink: "/blog/:year/:month/:day/:title/"
   - scope:
       path: ""
     values:
@@ -39,4 +43,5 @@ defaults:
 markdown: kramdown
 plugins:
   - jekyll-feed
+  - jekyll-paginate
 
