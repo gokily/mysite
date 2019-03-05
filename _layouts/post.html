@@ -1,6 +1,8 @@
 ---
 layout: default
 ---
-<h2>{{ page.title }}</h2>
-<h4>{{ page.date | date_to_string }}</h4>
-{{ content }}
+<div id="blog-post" class="normal-page">
+	<h2>{{ page.title }}</h2>
+	<h4>{{ page.date | date_to_string }}</h4>
+	{{ content }}
+</div>

@@ -24,7 +24,8 @@ github_username:  jekyll
 github_url: https://github.com/gokily
 
 excerpt_separator: <!--more-->
-
+paginate: 10
+paginate_path: "/blog/page:num/"
 # Defaults
 
 defaults:

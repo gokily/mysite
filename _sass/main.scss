@@ -129,13 +129,14 @@ table {
 }
 
 /* GENERAL CSS */
-$open-font: "Open Sans", sans-serif;
 $roboto-font: "Roboto", sans-serif;
 $mywhite: #fefefe;
 $myblack: #101010;
+$mydarkgrey: #404040;
 $mygrey: #696969;
 $mylightgrey: #bebebe;
 $mytest: #fffce0; //#FCF8ED;
+$myhl: #af3d21;
 @mixin box_sizing {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -149,17 +150,47 @@ html {
 body {
   @include box_sizing;
   font-family: $roboto-font;
+  line-height: 1.4;
   padding: 30px;
+  color: $mydarkgrey;
 }
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   line-height: 1.2;
-  font-family: $roboto-font;
 }
 
 h1 {
   font-size: 3em;
   margin-bottom: 15px;
   font-weight: 100;
+}
+h2 {
+  font-size: 2em;
+  margin-bottom: 25px;
+  font-weight: 700;
+}
+h3 {
+  font-size: 1.4em;
+  letter-spacing: -1px;
+  margin-bottom: 5px;
+  font-weight: 700;
+}
+h4 {
+  font-size: 0.9em;
+  //letter-spacing: -1px;
+  margin-bottom: 5px;
+}
+
+p {
+  margin-bottom: 0.5em;
+}
+a {
+  color: $mydarkgrey;
+  text-decoration: none;
 }
 
 #whole-wrapper {
@@ -170,33 +201,36 @@ h1 {
 }
 .content-wrapper {
   box-sizing: inherit;
-  color: $mygrey;
 }
 
-#header-nav, #footer-nav {
+.content-nav {
   li {
     display: inline-block;
-    list-style-type: none;
     padding: 5px 7px;
   }
   a {
-    text-align: center;
-    margin: auto;
     color: $mygrey;
-    text-decoration: none;
   }
   a:hover {
     color: $myblack;
   }
 }
 
+.external-link {
+  a {
+    color: $myhl;
+  }
+  a:hover {
+    color: darken($myhl, 20%);
+  }
+}
+
 /* HEADER CSS */
-$header-size: 50px;
 #header-nav {
   float: right;
 }
 #header-nav a {
-  font-size: $header-size * 0.4;
+  font-size: 1.3em;
 }
 #header-nav a:last-of-type {
   padding-right: 0px;
@@ -204,7 +238,6 @@ $header-size: 50px;
 
 #site-header {
   overflow: hidden;
-  font-family: $open-font;
   width: 100%px;
   background-color: $mytest;
   padding: 0px 20px 0px 5px;
@@ -218,25 +251,34 @@ $header-size: 50px;
 
 #myname {
   margin: auto auto;
-  font-family: $roboto-font;
   font-weight: 100;
-  font-size: $header-size * 0.7;
+  font-size: 2.2em;
 }
-
 
 /* FOOTER CSS */
 #site-footer {
+  @include box_sizing;
   width: 100%;
   font-size: 0.8em;
+  padding: 2em;
+  text-align: center;
+  background-color: $mytest;
+  color: $mygrey;
 }
 
 #footer-nav {
   display: inline-block;
-  margin: 0px auto;
+  margin: 0 auto;
+}
+
+.footer-separator {
+  margin: 0 auto;
+  width: 40%;
+  border-bottom: 1px solid $mygrey;
 }
 
 /* HOME PAGE */
-#home-page, #blog-page {
+.normal-page {
   padding: 20px;
 }
 /* ABOUT PAGE */
@@ -286,5 +328,32 @@ $header-size: 50px;
     flex: 1 1 auto;
     padding: 80px 20px 20px;
     background: darken($color: $color1, $amount: 3);
+  }
+}
+
+/* BLOG PAGE */
+#blog-page {
+  h4 {
+    margin-top: -5px;
+    margin-bottom: 15px;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+}
+.blog-author {
+  font-weight: 700;
+}
+.read-more {
+  text-decoration: underline;
+  text-emphasis: italic;
+  color: $myhl;
+}
+.read-more:hover {
+  color: darken($myhl, 15%);
+}
+.blog-list {
+  li {
+    margin-bottom: 30px;
   }
 }
