@@ -181,8 +181,11 @@ h3 {
   font-weight: 700;
 }
 h4 {
+  font-size: 1.2em;
+  letter-spacing: -1px;
+}
+h5 {
   font-size: 0.9em;
-  //letter-spacing: -1px;
   margin-bottom: 5px;
 }
 
@@ -286,6 +289,11 @@ a.inner-link:hover {
   border-bottom: 1px solid $mygrey;
 }
 
+.hosting-info {
+  display: inline-block;
+  margin: 3px;
+}
+
 /* HOME PAGE */
 $home-section-per: 60%;
 #home-page {
@@ -315,6 +323,20 @@ $home-section-per: 60%;
 }
 
 /* ABOUT PAGE */
+$color1: $myaltcolor;
+/* Triangles */
+.ss-style-triangles::after {
+  left: 50%;
+  width: 100px;
+  height: 100px;
+  -webkit-transform: translateX(-50%) rotate(45deg);
+  transform: translateX(-50%) rotate(45deg);
+}
+.ss-style-triangles::after {
+  bottom: -50px;
+  z-index: 10;
+  background: inherit;
+}
 
 #about-page {
   display: flex;
@@ -328,45 +350,22 @@ $home-section-per: 60%;
     content: "";
     pointer-events: none;
   }
-
-  $color1: $mywhite;
-  /* Triangles */
-  .container {
-    overflow: hidden;
-    width: 100%;
-    margin: 0px;
-    /* we don't want the pseudo-elements sticking out */
-  }
-  .ss-style-triangles::after {
-    left: 50%;
-    width: 100px;
-    height: 100px;
-    -webkit-transform: translateX(-50%) rotate(45deg);
-    transform: translateX(-50%) rotate(45deg);
-  }
-
-  .ss-style-triangles::after {
-    bottom: -50px;
-    z-index: 10;
-    background: inherit;
-  }
-
-  #about-title {
-    position: relative;
-    padding: 5em 0em;
-    background: $color1;
-    text-align: center;
-  }
-  #about-content {
-    flex: 1 1 auto;
-    padding: 80px 20px 20px;
-    background: darken($color1, 3);
-  }
+}
+#about-title {
+  position: relative;
+  padding: 5em 0em;
+  background: $color1;
+  text-align: center;
+}
+#about-content {
+  flex: 1 1 auto;
+  padding: 80px 20px 20px;
+  background: $mywhite;
 }
 
 /* BLOG PAGE */
 #blog-page {
-  h4 {
+  h5 {
     margin-top: -5px;
     margin-bottom: 15px;
   }
@@ -389,4 +388,31 @@ $home-section-per: 60%;
   li {
     margin-bottom: 30px;
   }
+}
+
+/* CV PAGE */
+#cv-content {
+  display: flex;
+  flex-wrap: wrap;
+}
+.cv-section {
+  flex: 1 1 auto;
+  height: 100%;
+}
+.cv-li {
+  padding: 0.5em 0px;
+  * {
+    padding-left: 5px;
+  }
+}
+.cv-li-name {
+  border-left: 15px solid $myaltcolor;
+}
+.cv-li-place,
+.cv-li-date {
+  color: $mygrey;
+  margin-left: 15px;
+}
+.cv-li-date {
+  font-style: italic;
 }

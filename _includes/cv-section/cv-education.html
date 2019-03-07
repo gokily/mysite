@@ -1,1 +1,9 @@
-<span>test</span>
+<ul class="cv-list">
+	{% for cv-item in site.data.cv.cv-education %}
+	<li class="cv-li">
+		<h4 class="cv-li-name">{{ cv-item.name }}</h4>
+		<div class="cv-li-place">{{ cv-item.place }}</div>
+		<div class="cv-li-date">{{ cv-item.date }}</div>
+	</li>
+	{% endfor %}
+</ul>

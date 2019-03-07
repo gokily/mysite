@@ -1,12 +1,8 @@
 - name: Education
   class: education
-  path: cv-section/cv-education.html
 - name: Work experiences
   class: work-experience
-  path: cv-section/cv-work-experience.html
 - name: Skills
   class: skill
-  path: cv-section/cv-skill.html
 - name: Hobbies and interests
   class: hobbies-interests
-  path: cv-section/cv-hobby.html
