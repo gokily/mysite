@@ -5,7 +5,7 @@ title: Blog
 	<aside id="blog-aside">
 
 	</aside>
-	<h2>Recent posts</h2>
+	<h2>Blog posts</h2>
 
 	<ul class="blog-list">
 		{% for post in paginator.posts %}
@@ -13,10 +13,10 @@ title: Blog
 			<h3><a href="{{ site.baseurl }}{{ post.url }}">
 					{{ post.title }}
 				</a></h3>
-			<h4>
+			<h5>
 				By <a href="{{ site.baseurl }}/about/" class="blog-author">{{ site.myname }}</a>
 				/ {{ post.date | date_to_string }}
-			</h4>
+			</h5>
 			{{ post.excerpt }}
 			<a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read more &raquo;</a>
 		</li>
