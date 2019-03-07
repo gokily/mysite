@@ -1,9 +1,45 @@
 ---
 ---
 <div id="home-page"class="normal-page">
-<h1> Hello World!</h1>
-<p>
-	Hey, my name is {{ site.myname }}
-	{% include lorem.html %}
-</p>
+<aside id="home-aside">
+	<img class="picture" id="home-aside-picture" 
+	src="/assets/images/working-test.jpg" alt="Self picture">
+	<p>My name is {{ site.myname}}.<br>
+		I am currently studying computer science
+		at <a class="external-link" href="https://www.42.fr/">42</a> in Paris.
+		You can read more
+		<a class="inner-link" href="{{ site.baseurl }}/about/">about me</a>
+		or check my 
+		<a class="inner-link" href="{{ site.baseurl }}/cv/">Cirruculum Vitae</a>.
+	</p>
+</aside>
+<section class="main-section" id="home-section">
+	<h2>Recent posts</h2>
+	<ul class="blog-list">
+	{% for post in site.posts limit: 3 %}
+	<li>
+		<h3><a href="{{ site.baseurl }}{{ post.url }}">
+				{{ post.title }}
+			</a></h3>
+		<h4>
+			By <a href="{{ site.baseurl }}/about/" class="blog-author">{{ site.myname }}</a>
+			/ {{ post.date | date_to_string }}
+		</h4>
+		{{ post.excerpt }}
+		<a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read more &raquo;</a>
+	</li>
+	{% endfor %}
+
+	<div class="pagination">
+		{% if paginator.previous_page %}
+		<a href="{{ paginator.previous_page_path }}" class="previous">&laquo; Previous</a>
+		{% endif %}
+
+		{% if paginator.next_page %}
+		<a href="{{ paginator.next_page_path }}" class="next">Next &raquo;</a>
+		{% endif %}
+	</div>
+</ul>
+</section>
+
 </div>

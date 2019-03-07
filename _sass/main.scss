@@ -134,8 +134,9 @@ $mywhite: #fefefe;
 $myblack: #101010;
 $mydarkgrey: #404040;
 $mygrey: #696969;
-$mylightgrey: #bebebe;
-$mytest: #fffce0; //#FCF8ED;
+$mylightgrey: darken($mywhite, 3);
+$mybgcolor: #fffce0; //#FCF8ED;
+$myaltcolor: #f9d0a7;
 $myhl: #af3d21;
 @mixin box_sizing {
   -moz-box-sizing: border-box;
@@ -144,7 +145,7 @@ $myhl: #af3d21;
 }
 
 html {
-  background-color: $mytest;
+  background-color: $mybgcolor;
 }
 
 body {
@@ -193,6 +194,10 @@ a {
   text-decoration: none;
 }
 
+.normal-page {
+  padding: 20px;
+}
+
 #whole-wrapper {
   max-width: 780px;
   box-sizing: inherit;
@@ -216,13 +221,18 @@ a {
   }
 }
 
-.external-link {
-  a {
-    color: $myhl;
-  }
-  a:hover {
-    color: darken($myhl, 20%);
-  }
+a.external-link {
+  color: $myhl;
+}
+a:hover.external-link {
+  color: darken($myhl, 20%);
+}
+
+a.inner-link {
+  font-weight: bolder;
+}
+a.inner-link:hover {
+  text-decoration: underline;
 }
 
 /* HEADER CSS */
@@ -239,9 +249,8 @@ a {
 #site-header {
   overflow: hidden;
   width: 100%px;
-  background-color: $mytest;
+  background-color: $mybgcolor;
   padding: 0px 20px 0px 5px;
-  margin-bottom: 20px;
 }
 #name-wrapper {
   float: left;
@@ -262,7 +271,7 @@ a {
   font-size: 0.8em;
   padding: 2em;
   text-align: center;
-  background-color: $mytest;
+  background-color: $mybgcolor;
   color: $mygrey;
 }
 
@@ -278,9 +287,33 @@ a {
 }
 
 /* HOME PAGE */
-.normal-page {
-  padding: 20px;
+$home-section-per: 60%;
+#home-page {
+  position: relative;
 }
+#home-aside {
+  @include box_sizing;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  background-color: $myaltcolor;
+  height: 100%;
+  width: 100% - $home-section-per;
+  padding: 15px;
+  font-weight: 300;
+}
+
+#home-aside-picture {
+  @include box_sizing;
+  width: 100%;
+}
+
+#home-section {
+  @include box_sizing;
+  width: $home-section-per;
+  padding-right: 20px;
+}
+
 /* ABOUT PAGE */
 
 #about-page {
@@ -327,7 +360,7 @@ a {
   #about-content {
     flex: 1 1 auto;
     padding: 80px 20px 20px;
-    background: darken($color: $color1, $amount: 3);
+    background: darken($color1, 3);
   }
 }
 
@@ -336,9 +369,6 @@ a {
   h4 {
     margin-top: -5px;
     margin-bottom: 15px;
-  }
-  a:hover {
-    text-decoration: underline;
   }
 }
 .blog-author {
@@ -353,6 +383,9 @@ a {
   color: darken($myhl, 15%);
 }
 .blog-list {
+  a:hover {
+    text-decoration: underline;
+  }
   li {
     margin-bottom: 30px;
   }
