@@ -3,6 +3,9 @@ layout: default
 ---
 <div id="blog-post" class="normal-page">
 	<h2>{{ page.title }}</h2>
-	<h4>{{ page.date | date_to_string }}</h4>
+	<h4>
+		By <a href="{{ site.baseurl }}/about/" class="blog-author">{{ site.myname }}</a>
+		/ {{ page.date | date_to_string }}
+	</h4>
 	{{ content }}
 </div>
