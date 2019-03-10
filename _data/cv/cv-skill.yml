@@ -1,0 +1,8 @@
+- name:  Statistical analyses (R)
+- name:  HTML and CSS
+- name:  Programing languages
+  list: 
+    - name: C
+    - name: Perl
+    - name: Ruby
+    - name: Rails

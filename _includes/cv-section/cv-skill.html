@@ -1,10 +1,14 @@
-<ul class="cv-list">
-	{% for cv-item in site.data.cv.cv-{{ item.class }} %}
-	test
-	<li class="cv-li">
-		<h4 class="cv-li-name">{{ cv-item.name }}</h4>
-		<div class="cv-li-place">{{ cv-item.place }}</div>
-		<div class="cv-li-date">{{ cv-item.date }}</div>
-	</li>
-	{% endfor %}
-</ul>
+{% for cv-item in site.data.cv.cv-skill %}
+<li class="cv-li">
+	<h4 class="cv-li-name">{{ cv-item.name }}</h4>
+	{% if cv-item.list %}
+	<ul class="cv-sublist">
+		{% for lang in cv-item.list %}
+		<li class="cv-sub-li-name">
+			- {{ lang.name }}
+		</li>
+		{% endfor %}
+	</ul>
+	{% endif %}
+</li>
+{% endfor %}
