@@ -359,8 +359,15 @@ $color1: $myaltcolor;
 }
 #about-content {
   flex: 1 1 auto;
-  padding: 80px 20px 20px;
+  padding: 80px 50px 20px;
   background: $mywhite;
+}
+
+.about-external-link {
+  font-weight: 500;
+}
+.about-external-link:hover {
+  text-decoration: underline;
 }
 
 /* BLOG PAGE */
