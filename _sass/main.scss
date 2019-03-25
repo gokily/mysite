@@ -266,6 +266,14 @@ a.inner-link:hover {
   text-decoration: underline;
 }
 
+.gist,
+.cp_embed_wrapper {
+  margin-top: 1em;
+}
+
+.cp_embed_wrapper {
+  margin-bottom: 1em;
+}
 /* Triangles */
 .ss-style-triangles::after {
   left: 50%;

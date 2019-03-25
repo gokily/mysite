@@ -1,0 +1,37 @@
+<p>
+
+A personal site such as this one with a simple blog can easily be built using a static site generator like Jekyll.
+However, one thing you can’t do on a static site and that is quite important for a personal site is a contact form, so people can easily get in touch with you. You could put your email address on a contact page so people can write
+directly to you using their own email account. This is generally considered a bad thing as your email address could be spammed with unsolicited emails.
+The other solution is to use a third party form provider. In this blog post I will show you how to use getsimpleform’s form on your Jekyll site hosted on GitHub.
+</p>
+<p>
+First visit <a href="https://getsimpleform.com/" class="external-link">https://getsimpleform.com/</a>. On their homepage, fill in the email address on which you want to receive notifications about messages sent via your contact form. 
+You will then received an email with your form API token (public token) and your access API token (private token). Using the provided link, go to the instruction page then to the form settings page. You will be presented with four fields to fill in. In the first one you can put an Akismet key for spam management (See getsimpleform's instruction page for details). The other three field will be used to configure the message you will receive in your inbox when someone use the contact form.
+You can fill it like below:<br>
+- Reply to field: email<br>
+- Subject template: Your_site_name message from {% raw %}{{ email }}{% endraw %}<br>
+- Body template:
+<script src="https://gist.github.com/gokily/e43c0447b8efca878d833bdd4a20c625.js"></script>
+</p>
+<p>
+You can then add a form element on your contact page, for example
+</p>
+<p class="codepen" data-height="333" data-theme-id="0" data-default-tab="html" data-user="gokily" data-slug-hash="qvvLeV"
+ data-preview="true" style="height: 333px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid black; margin: 1em 0; padding: 1em;"
+ data-pen-title="getsimpleform contact form">
+	<span>See the Pen <a href="https://codepen.io/gokily/pen/qvvLeV/">
+			getsimpleform contact form</a> by gokily (<a href="https://codepen.io/gokily">@gokily</a>)
+		on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+<p>
+Replace the YOUR_PUBLIC_API_TOKEN with your public API token. Make sure the field's names are the same between the form settings page and your html code.
+You can see that the form has a redirect_to field in which you can put the absolute path to which the form will redirect to. Thus you can create a special page such as this one to which the message sender will be redirected to.
+</p>
+<script src="https://gist.github.com/gokily/f9cdd1ba45c3b6104259000e6b4cd7a4.js"></script>
+<p>
+That's all you need to do to setup the contact form. When someone use the form to contact you, you will receive an email notifying you that you got a new message to which you can directly reply to answer the person. 
+<br>
+I hope this post helped you setting up your contact form !
+</p>
