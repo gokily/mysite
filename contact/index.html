@@ -1,0 +1,34 @@
+---
+title: Contact
+permalink: /contact/
+---
+<div id="contact-page" class="alt-page">
+	<section id="contact-title" class="ss-style-triangles alt-page-title">
+		<h1>Contact</h1>
+	</section>
+	<section id="contact-content" class="alt-page-content">
+		<section id="social-media">
+			<h3>Social media:</h3>
+			<a href="https://github.com/gokily">
+				<i class="fab fa-github"></i>
+			</a>
+			<a href="https://www.linkedin.com/in/goki-ly-08041815a/">
+				<i class="fab fa-linkedin"></i>
+			</a>
+		</section>
+		<form id="contact-form" action="https://getsimpleform.com/messages?form_api_token=fa36dcf0fb6529ed126899c9f36c2279"
+		 method="post">
+			<!-- the redirect_to is optional, the form will redirect to the referrer on submission -->
+			<h3>Send me a message</h3>
+			<input type='hidden' name='redirect_to' value='https://gokily.com/thanks/' />
+			<!-- all your input fields here.... -->
+			<label for="femail">Email address</label>
+			<input id="femail" type='email' name='email' />
+			<label for="ftitle">Message title</label>
+			<input id="ftitle" type='text' name='title' />
+			<label for="fcontent">Message title</label>
+			<textarea id="fcontent" name="message" rows="4" placeholder="Write your message here"></textarea>
+			<input type='submit' value='Send message' />
+		</form>
+	</section>
+</div>
