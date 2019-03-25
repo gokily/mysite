@@ -201,6 +201,32 @@ a {
   padding: 20px;
 }
 
+.alt-page {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  box-sizing: inherit;
+  section::before,
+  section::after {
+    position: absolute;
+    content: "";
+    pointer-events: none;
+  }
+}
+.alt-page-title {
+  border-radius: 15px;
+  position: relative;
+  padding: 5em 0em;
+  background: $myaltcolor;
+  text-align: center;
+}
+.alt-page-content {
+  //border-radius: 15px;
+  flex: 1 1 auto;
+  padding: 80px 50px 20px;
+  background: $mywhite;
+}
+
 #whole-wrapper {
   max-width: 780px;
   box-sizing: inherit;
@@ -240,6 +266,20 @@ a.inner-link:hover {
   text-decoration: underline;
 }
 
+/* Triangles */
+.ss-style-triangles::after {
+  left: 50%;
+  width: 100px;
+  height: 100px;
+  -webkit-transform: translateX(-50%) rotate(45deg);
+  transform: translateX(-50%) rotate(45deg);
+}
+.ss-style-triangles::after {
+  bottom: -50px;
+  z-index: 10;
+  background: inherit;
+}
+
 /* HEADER CSS */
 #header-nav {
   float: right;
@@ -262,7 +302,6 @@ a.inner-link:hover {
   height: 100%;
   padding: 5px;
 }
-
 #myname {
   margin: auto auto;
   font-weight: 100;
@@ -326,46 +365,6 @@ $home-section-per: 60%;
 }
 
 /* ABOUT PAGE */
-$color1: $myaltcolor;
-/* Triangles */
-.ss-style-triangles::after {
-  left: 50%;
-  width: 100px;
-  height: 100px;
-  -webkit-transform: translateX(-50%) rotate(45deg);
-  transform: translateX(-50%) rotate(45deg);
-}
-.ss-style-triangles::after {
-  bottom: -50px;
-  z-index: 10;
-  background: inherit;
-}
-
-#about-page {
-  display: flex;
-  flex: 1 1 auto;
-  flex-direction: column;
-  box-sizing: inherit;
-
-  section::before,
-  section::after {
-    position: absolute;
-    content: "";
-    pointer-events: none;
-  }
-}
-#about-title {
-  position: relative;
-  padding: 5em 0em;
-  background: $color1;
-  text-align: center;
-}
-#about-content {
-  flex: 1 1 auto;
-  padding: 80px 50px 20px;
-  background: $mywhite;
-}
-
 .about-external-link {
   font-weight: 500;
 }
@@ -430,4 +429,29 @@ $color1: $myaltcolor;
 
 .cv-sublist {
   margin-left: 15px;
+}
+
+/* CONTACT PAGE */
+#social-media {
+  padding: 20px;
+  text-align: center;
+}
+.fab {
+  font-size: 2.5em;
+}
+.fab:hover {
+  color: $myaltcolor;
+}
+
+#contact-form {
+  padding: 1em;
+  border: 1px solid $mydarkgrey;
+  border-radius: 15px;
+  input,
+  textarea {
+    @include box_sizing;
+    display: block;
+    width: 100%;
+    margin-bottom: 1em;
+  }
 }
