@@ -209,6 +209,8 @@ a {
 }
 .content-wrapper {
   box-sizing: inherit;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 6px 0px;
+  border-radius: 15px;
 }
 
 .content-nav {
@@ -309,6 +311,7 @@ $home-section-per: 60%;
   width: 100% - $home-section-per;
   padding: 15px;
   font-weight: 300;
+  border-radius: 0 15px 15px 0;
 }
 
 #home-aside-picture {
