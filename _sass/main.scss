@@ -356,6 +356,7 @@ $home-section-per: 60%;
   background-color: $myaltcolor;
   height: 100%;
   width: 100% - $home-section-per;
+  max-width: 250px;
   padding: 15px;
   font-weight: 300;
   border-radius: 0 15px 15px 0;
@@ -364,6 +365,7 @@ $home-section-per: 60%;
 #home-aside-picture {
   @include box_sizing;
   width: 100%;
+  max-width: 230px;
 }
 
 #home-section {
@@ -387,6 +389,14 @@ $home-section-per: 60%;
     margin-bottom: 15px;
   }
 }
+
+.blog-title {
+  margin-bottom: 5px;
+}
+.blog-content {
+  margin-top: 20px;
+  text-align: justify;
+}
 .blog-author {
   font-weight: 700;
 }
@@ -405,6 +415,7 @@ $home-section-per: 60%;
   li {
     margin-bottom: 30px;
   }
+  text-align: justify;
 }
 
 /* CV PAGE */
