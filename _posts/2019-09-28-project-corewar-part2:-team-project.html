@@ -1,0 +1,43 @@
+<p>
+	This is the second blog post of a mini-series where I talk about what I learnt by working on the project Corewar from
+	42. To learn more about the project itself, you can read the <a class="inner-link" href="{% post_url 2019-09-15-project-corewar-part1:-introduction %}">first
+		post</a> of this mini-series. Today, the blog post is centered on my first experience working in a group on a relatively big project.
+		<!--more-->
+</p>
+<p>
+	Corewar is the largest project I have finished at the 42. As it is a big project, it has to be completed in a group of
+	three or four people, and group organization is also one of the criteria on which we are evaluated.
+</p>
+<p>
+	The first division of the work is easy as the project asks for two executables. One of the group member worked almost
+	exclusively on the assembler part of the project and the rest of us worked on the virtual machine. Here comes the hard
+	part in terms of work assignment. As I have explain in the first blog post, there are three main modules to the
+	virtual machine, and we first worked on different modules which have distinct roles so we could code almost
+	independently. This in my opinion was a mistake. Each part was almost independent, but the important part was almost.</p>
+	<p>
+	By not thinking ahead of the links between each module, we had some troubles trying to fix our code so that the
+	different modules could work in unison. For example, I worked at first on the second module that cycles through the
+	processes to read the instructions and killed the processes when needed. As some instructions can add new process and
+	processes need to be killed, it was easier to work with a linked list of processes. However, in the first module, when
+	parsing the command line, it was easier to stock the programs and their respective process in a static table. So my
+	teammate used a static table for the process and we had to convert the static table to a linked list.
+</p>
+<p>
+	Another mistake we made was when I helped writing the sub-function executing the individual instructions. As there
+	were a lot of instructions to code, we divided the instructions between us. Here again, we did not discuss between us
+	on how we should code the instructions and see if we could create some global helper functions that could be used by
+	the different sub-functions. As a result, we created similar helper functions with different arguments and return
+	value bloating the codebase and making it harder to debug as there were several functions with similar roles. At the
+	end, we refactor all the functions to use the same helper functions and have a cleaner code base. So, we lost time by
+	first trying to make the code work with duplicate functions and also by wasting the time of one of our team member as
+	his code was scrapped and replaced.</p>
+	<p>
+	After finishing the project I realized that all this could have been avoided by carefully preparing and discussing
+	about the way we should tackle each part of the program together. At first, not coding and discussing seems like a
+	waste of time, but in the end it is a shortcut, as we have less useless code and we will not need additional code to
+	make our different parts work together.
+</p>
+<p>
+	So take your time before typing frantically on your keyboard!
+
+</p>

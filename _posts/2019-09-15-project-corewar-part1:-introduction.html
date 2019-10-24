@@ -1,0 +1,23 @@
+<p>
+This project is the last project of the algorithm branch before the internship. It was the project that took me the most time to complete (about a month and a half). While working on this project, I think I have learnt several valuable lessons that I want to remember by putting them on my blog.
+This blog post is the first part of a 4 part mini-serie of blog posts related to the Corewar project and what I learned from it. 
+<!--more-->In this post I will introduce the project on itself and how my group and I organized ourselves to complete the project. Links to the other posts of the mini-series can be found at the end of this post.
+</p>
+<p>
+In this project, we were asked to recreated two executables in order to play the game Corewar (https://en.wikipedia.org/wiki/Core_War). In this game, programs are loaded into a virtual arena and at the start are given a processus that will read the program’s instructions and execute them. The game ends when all process are killed because they did not execute a ‘live’ instruction within a predetermined number of cycles. The winner of the game is the last one for whom one of the process executed a ‘live’ instruction. </p>
+<p>
+The two executables we were asked to make are: a program that translates instructions written in human readable code to binary format, the assembler, and a program that load the binary programs in the virtual arena to make them battle, the virtual machine.</p>
+<p>
+I worked on this project with three other teammates from school. We splitted the work between us and I mainly worked on the virtual machine part of the project. The virtual machine can be separated in three main modules. The first module parses the argument given in the command line to check the options and the filepath of the programs it needs to load into the arena. Then, it generates the arena, loads the programs and attributes each of them a process that will run in a pseudo-parallel way. The second module cycles through the processes to read the instructions. It also checks periodically if each process has executed a ‘live’ instruction since the last check and kills all the processes that did not. When there are no more processes alive, it declares the winner. The last module is called by the second one to execute the instruction read by processes. It is essentially a collection of sub-functions that execute the individual instructions and a main function that routes to the correct sub-function. </p>
+<p>
+Most of my time was allotted to the last module and I also refactor the second module to make the cycling through processes smoother. Working on this project made me realize three important facts.
+<br>
+&nbsp&nbsp - Working in group needs a lot of preparation.
+<br>
+&nbsp&nbsp  - Testing your program is essential.
+<br>
+&nbsp&nbsp  - The end is always the hardest part of a project.
+</p>
+<p>
+	Each of these topics will be the subject of a blog post that will come in the near future. See you in the next post!
+</p>
