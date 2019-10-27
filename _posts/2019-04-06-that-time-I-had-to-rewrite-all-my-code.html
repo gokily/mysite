@@ -1,15 +1,15 @@
 <p>
 
-</p>Today’s post will be about my recent experience at 42 while working on a school project called ft_printf where I had to
-basically scrap all my code and restart from scratch. As the name suggests, the aim of the project is to recode the
-printf function that is widely used in C. We are allowed to use write and malloc from the standard library and we are
+</p>Today’s post will be about my recent experience at 42 while working on a school project called <a href="https://github.com/gokily/ft_printf" class="outer-link">ft_printf</a> where I had to
+basically scrap all my code and recode it from scratch. As the name suggests, the aim of the project was to recode the
+printf function that is widely used in C. We were allowed to use write and malloc from the standard library and we were
 asked to recode a bunch of conversions such as %c, %p, %d and even %f.
 Today, I will write about what I learned coding the project twice from scratch.
 </p><!--more-->
 <p>
 Finishing this project was the most painful experience I have had since starting 42.
-The issue I faced was that when tried to validate the project, the automatic grading system threw me a sigabrt signal
-in the first test it did and thus grade my project 0. Failing a project is the normal learning process at 42 and I was
+The issue I faced was that when I tried to validate the project, the automatic grading system threw me a sigabrt signal
+in the first test it did and thus graded my project 0. Failing a project is the normal learning process at 42 and I was
 already accustomed to it. However, it was the first time I encountered a sigabrt signal and the painful part was that I
 wasn’t able to reproduce the error when testing my function on my own. So I tried to look at what could produce a
 sigabrt signal and found out that it could be raised from standard library functions. As 42 limits the functions we can
@@ -17,14 +17,20 @@ use in each project, in this case it could only be write, malloc or free. So I t
 unprotected malloc, a extra free that could raise the sigabrt signal, etc. Trying to debug a program when you cannot
 reproduce the error is really hard. I know understand why developers ask for the most detailed bug report so they can
 more easily reproduce the issue faced by the customer.
+</p>
+<p>
 As I could not reproduce the error, each time I failed (spoiler: I failed 3 more times), I tried to change a small part
 of my code and retry. Once you fail, you can only retry 96 hours later so this process was quite time consuming and
 nerve wracking.
+</p>
+<p>
 After my fourth fail, and reviewing the code with my friends who did not find either where my printf was failing, I
 decided to take the drastic measure to restart from scratch my project.
 Taking such a decision is harder and harder as you invest time writing and rewriting your code. At the end, it was the
-right call as I was able to pass the automatic grading system with my new version of printf. I even did a mallocless
-version that was almost as fast as the libc printf.
+right call as I was able to pass the automatic grading system with my new version of printf. I even did a <a href="https://github.com/gokily/ft_printf_wo_malloc" class="outer-link">mallocless
+  version</a> that was almost as fast as the libc printf.
+</p>
+<p>
 Reflecting on the matter, I think that it was overall a positive experience where I learned a lot of things. So I want
 to take this opportunity to write down my thoughts so I can come back to this post when I face a similar situation in
 the future.
@@ -34,22 +40,22 @@ the future.
 If you are not rewriting some really old code, you have an idea about how things should work and how you can make it
 work. You can write your code faster and there will be a lot less mistakes in it. For example in my case, I knew how I
 could parse the first argument given the printf so I get the conversion type and all the flags associated to it. In my
-first iteration I had an error where I was skipping the character after the end of the precision or width component.
+first iteration I had an error where I was skipping the character after the end of the precision or width component that took me a lot of time to correct. This part took me a lot less time recoding and was error-free from the beginning.
 </p>
 <p>
 <h3>Your code is cleaner and better</h3>
-When you are rewriting, you have a better view of what will be the different parts of your program and how they will
+When you are rewriting code, you have a better view of what will be the different parts of your program and how they will
 communicate between them. Your code will be cleaner and easier to maintain/correct. Two good examples come into mind
 for printf.
 The first one is the handling of precision and width. Initially I was doing the conversion in three steps. First I was
 getting the conversion without any precision or width. Then I was getting the string to the right precision, and
 finally getting the string to the correct width. So basically for each conversion they were at least 3 malloc/free
 cycles and even more if there was for example a # or + flag. In the new version, as I was doing a mallocless version, I
-needed the length of the final length of the conversion of from the start. As it was my second time around, it was
-quite easy to know how to calculate the final length beforehand.
+needed the final length of the conversion from the start. As it was my second time around, it was
+quite easy to know how to calculate the final length beforehand. This was a clear upgrade from my first version, in terms of code readability and efficiency.
 The second one was when I was making the individual conversion. In my first iteration, each conversion (%p, %s, %c, %d,
-%u, %x, etc) was done in a separate file with only static functions with the exception of the main function
-communicating with the conversion handler function. When I was making that version, I thought that this method was
+%u, %x, etc) was coded in a separate file. Each file included a main function that was 
+communicating with the conversion handler function (the dispatcher) and static functions specific to each conversion. When I was making that version, I thought that this method was
 quite clean and easy to understand: one conversion = one file. However deep inside me, I knew that there were redundant
 code between the different files. So in my second iteration, I combined the conversions whenever possible. All the
 unsigned integer conversions were grouped together (%u, %x, %X and %o), character conversions as well (%c and %%). At
