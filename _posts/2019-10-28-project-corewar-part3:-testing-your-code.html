@@ -1,0 +1,85 @@
+<p>
+	This is the third post I am making on the Corewar project I recently finished at school. You can read the <a href="{% post_url 2019-09-15-project-corewar-part1:-introduction %}"
+	 class="inner-link">first introductory post</a> and <a href="{% post_url 2019-09-28-project-corewar-part2:-team-project %}" class="inner-link">second post about preparation</a>.
+</p>
+<p>
+	Before enrolling in 42, I learn some web development using Ruby on Rails.
+	During that time, I learnt about test driven development and tried to apply 
+	it. That practice disappeared completely after entering in school as it was 
+	not as simple as in Ruby to implement test driven development in C.
+</p>
+<p>
+	The project Corewar made me truly realize the importance of testing.
+	<!--more-->This project asked us to make two programs. The first, the 
+	assembler, was quite easy to test. A correct assembler was available in the
+	ressources given with the project. So we could give the same file to our 
+	assembler and the correct one and see if the outputed file was the same.
+	However, for the virtual machine part, testing was harder. A correct 
+	virtual machine was also provided as a ressource. In the most basic state, 
+	the virtual machine give as an output the name of the winner. Thus, we 
+	could have the same output (the same winner) with an incorrect 
+	implementation. So how could we test the virtual machine?
+</p>
+<p>
+	One of the mandatory command line option we had to implement was 
+	the -d dump option. This option takes a numerical argument N and makes the 
+	program dump the arena state after N cycles. This option is one	of the way 
+	to check that the program is correctly updating the arena state	during the 
+	game. Whoever the output of this option: the arena state in hexadecimal, 
+	was hard to read. Additionally, as it was a snapshot taken at a 
+	specific time, it was hard to know which part of the code was causing
+	unexpected behaviours. So we could see that our virtual machine was 
+	diverging from the correct one at some point, but it was hard to know why.
+</p>
+<p>
+	As a way to debug our program and also as a bonus for the project, we
+	started developing as visual mode where we could follow the arena state in 
+	‘real time’. This way, we could see when our program was starting to have a 
+	different behaviour from what was expected. The visual mode helped us
+	debugging our program, however some of the bugs were hard to understand or 
+	only appeared in particular situations when	the arena state was already too 
+	hard to analyze by human eyes.
+</p>
+<p>
+	So as another bonus for the project, we decided to develop a test suite for 
+	the project. The test suite had for the	virtual machine part, two main 
+	tests. The first one tested each instruction individually to verify that 
+	their behaviour	were correctly implemented. We can assimilate this part as 
+	the unit test part of the test suite. The second part was an integration 
+	test where we periodically ask the program to dump the arena state with the 
+	-d option and check if we get the same arena state as the correct virtual 
+	machine. This test checked that the layers we put on top of the 
+	instructions were correctly implemented. With these two tests, we covered 
+	the entirety of the program, ensuring that it had no more unexpected 
+	behaviours.
+</p>
+<p>
+	At the time, I was only considering this test suite as a bonus and as a way 
+	to make the debugging easier. In fact, I realized the importance of a good 
+	test suite one week after finishing the project. It was when I evaluated 
+	the Corewar project of another group. Evaluating this project is hard as 
+	the -d dump command line option is almost the only thing you can use to 
+	really test the behaviour of the virtual machine. Additionally, as I have 
+	already said, reading output from this option is also hard. So, what I did 
+	to evaluate their project was to run the test suite that we made to check 
+	our program. The integration test went well, no difference could be 
+	detected. However, one of the unit tests came back with an error message. 
+	One of the instruction was not implemented correctly. You could think that 
+	it is strange that the integration test could be correct when one of the 
+	fundamental part of the codebase is wrong. However, the incorrectly 
+	implemented instruction was so obscure that none of the battling programs 
+	used in the integration test were using it. If one of them had this 
+	instruction in its code, the integration test would also come back with an 
+	error. Talking to the group, they told me that they only tested their 
+	virtual machine using the -d option with provided battling programs. Thus, 
+	instructions that were not used by any of the battling programs were not 
+	tested. It was at that moment that I think I grasped the power of good test 
+	practice while developing a program.
+</p>
+<p>
+	Reading the above paragraph, I can feel that it seems to be a insignificant
+	event that triggered my realization of the importance of good testing 
+	practice. 
+	Sometimes the smallest of thing can have a big impact. For me, this was
+	such a moment.
+</p>
